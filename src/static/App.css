@@ -32,9 +32,24 @@
   align-items: center;
   border-radius: 0.5rem;
 }
+.update-container{
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  background-color: #334257;
+  align-items: center;
+  border-radius: 0.5rem;
+}
 .signin-body{
   width: 96%;
   height: 80%;  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.update-body{
+  width: 96%;
+  min-height: 300px;  
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -55,11 +70,14 @@
   width: 40%;
   align-items: center;
 }
-.input-box input{
+.input-box input, .input-box select{
   height: 1.8rem;
   width: 90%;
   border: 0.1rem solid #334257;
   border-radius: 0.3rem;
+}
+.input-box select{
+  width: 100px;
 }
 .login-button{
   height: 2rem;
@@ -114,9 +132,12 @@
   align-items: center;
 }
 .user-heading{
-  width: 10%;
+  /* width: 10%;  */
   min-width: 150px;
   align-items: center;
+}
+.heading h1:hover{
+  cursor: pointer;
 }
 .logout-button{
   display: flex;
@@ -183,6 +204,25 @@
   height: 2rem;
   cursor: pointer;
 }
+.create-task-update{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2rem;
+  width: 6.2rem;
+}
+.create-task-update button{
+  width: 6rem;
+  height: 1.8rem;
+  font-size: 16px;
+  border-radius: 5px;
+  background-color: #fff;
+}
+.create-task-update button:hover{
+  width: 6.2rem;
+  height: 2rem;
+  cursor: pointer;
+}
 .task-list-head{
   display: flex;
   justify-content: space-between;
@@ -196,7 +236,7 @@
   width: 10%;
 }
 .task-list-head table .task-name{
-  width: 80%;
+  width: 40%;
 }
 .task-list-head table .task-status{
   width: 10%;
@@ -212,6 +252,16 @@
   left: 35vw;
   height: auto;
 }
+.input-box h3 {
+  color: #EEE;
+}
+.update-task-page{
+  width: 50vw;
+  position: fixed;
+  top: 1vh;
+  left: 25vw;
+  height: auto;
+}
 .create-page-close-button{
   width: 100vw;
   height: 100vh;
@@ -221,6 +271,10 @@
 }
 .create-task-page-inner{
   width: 100%;
+}
+.update-task-page-inner{
+  width: 100%;
+  min-height: 300px;
 }
 .invalid-data{
   color: red;
@@ -236,4 +290,32 @@
 .sign-up-sign-in a{
   color: inherit;
   text-decoration: none;
+}
+.history{
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  color: #EEE;
+}
+.history-container {
+  width: 100%;
+}
+.history-head {
+  display: flex;
+  justify-content: center;
+}
+.history-data{
+  display: flex;
+  justify-content: center;
+}
+.history-data-container{
+  width: 80%;
+  min-height: 100px;
+  border: 1px solid black;
+  background-color: #EEE;
+  overflow-y: scroll;
+}
+.update-container-submit {
+  margin-top: 10px;
 }
