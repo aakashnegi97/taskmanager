@@ -34,12 +34,14 @@ function UpdateTask(props) {
         setEditState(`${y.getDate()}-${y.getMonth() + 1}-${y.getFullYear()} ${y.getHours() + 1}:${y.getMinutes() + 1}`);
     }, [props.inputData.status, props.inputData.assignedto, props.id]);
 
-    // useEffect(() => {
-    //     db.collection('taskdata').where("taskname","==","Advertisement").onSnapshot(snap => {
-    //         let changes = snap.docChanges();
-    //         console.log(changes)
-    //     })
-    // }, []);
+    useEffect(() => {
+        if (props.inputData.taskname) {
+            db.collection('taskdata').where("taskname", "==", props.inputData.taskname).onSnapshot(snap => {
+                let changes = snap.docChanges();
+                console.log(changes)
+            })
+        }
+    }, [props.inputData.taskname]);
     return (
         <>
             <div style={{ display: props.display, zIndex: 2 }} className="create-page-close-button" onClick={props.close}></div>
@@ -149,7 +151,12 @@ function UpdateTask(props) {
                                 <div className="history-data">
                                     <div className="history-data-container">
                                         <ul>
-
+                                            <li>
+                                                <h4>
+                                                    1. Created at {createdState}
+                                                </h4>
+                                            </li>
+                                            
                                         </ul>
                                     </div>
                                 </div>
