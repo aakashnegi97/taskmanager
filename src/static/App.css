@@ -1,0 +1,239 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.example::-webkit-scrollbar {
+  display: none;
+}
+.app-heading{
+  display: flex;
+  justify-content: center;
+}
+.container{
+  width: 90%;
+  min-height: 97vh;
+  background-color: #EEE;
+  margin: auto;
+  margin-top: 3vh;
+}
+.login-body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.login-container{
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  height: 20rem;
+  background-color: #334257;
+  align-items: center;
+  border-radius: 0.5rem;
+}
+.signin-body{
+  width: 96%;
+  height: 80%;  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.login-child,.login-button-container,.sign-up-label-container{
+  display: flex;
+  justify-content: center;
+}
+.login-child .label{
+  display: flex;
+  justify-content: center;
+  width: 40%;
+  align-items: center;
+  color: #EEEEEE;
+}
+.login-child .input-box{
+  display: flex;
+  width: 40%;
+  align-items: center;
+}
+.input-box input{
+  height: 1.8rem;
+  width: 90%;
+  border: 0.1rem solid #334257;
+  border-radius: 0.3rem;
+}
+.login-button{
+  height: 2rem;
+}
+.login-button button{
+  width: 5rem;
+  height: 1.8rem;
+  font-size: 20px;
+  border-radius: 5px;
+  background-color: #fff;
+}
+.sign-up-label{
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  color: #EEEEEE;
+}
+.login-button button:hover{
+  width: 5.3rem;
+  height: 2rem;
+  cursor: pointer;
+}
+.sign-up-label .new-user{
+  height: 1rem;
+  width: 4.5rem;
+}
+.sign-up-label .new-user a{
+  color: inherit;
+  text-decoration: none;
+}
+.sign-up-label .new-user h3:hover{
+  font-size: larger;
+  cursor: pointer;
+}
+.home-main-container{
+  display: flex;
+  justify-content: center;
+}
+.home-container{
+  width: 96%;
+  margin-top: 1rem;
+}
+.home-container header{
+  padding: 0 1rem 0 1rem;
+  background-color: #334257;
+  color: #EEEEEE;
+}
+
+.header-container,.user-heading,.heading{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.user-heading{
+  width: 10%;
+  min-width: 150px;
+  align-items: center;
+}
+.logout-button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 1.7rem;
+  width: 4.2rem;
+}
+.logout-button button{
+  width: 4rem;
+  height: 1.5rem;
+  font-size: 15px;
+  border-radius: 5px;
+  background-color: #fff;
+}
+.logout-button button:hover{
+  width: 4.2rem;
+  height: 1.7rem;
+  cursor: pointer;
+}
+.task-type-container{
+  display: flex;
+  align-items: center;
+  margin-top: 3rem;
+  padding: 0 1rem 0 1rem;
+  border-top: 1px solid #334257;
+  border-bottom: 1px solid #334257;
+  height: 50px;
+}
+.task-type-container .task-nav{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+.task-type-container .task-type{
+  display: flex;
+  justify-content: space-between;
+  width: 25%;
+}
+.create-task-container{
+  display: flex;
+}
+.task-type-container ul li{
+  list-style: none;
+  font-size: 22px;
+}
+.create-task-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2rem;
+  width: 7.2rem;
+}
+.create-task-container button{
+  width: 7rem;
+  height: 1.8rem;
+  font-size: 16px;
+  border-radius: 5px;
+  background-color: #fff;
+}
+.create-task-container button:hover{
+  width: 7.2rem;
+  height: 2rem;
+  cursor: pointer;
+}
+.task-list-head{
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 1rem 0 1rem;
+  /* border-bottom: 1px solid #334257; */
+}
+.task-list-head table{
+  width: 100%;
+}
+.task-list-head table .sr-no{
+  width: 10%;
+}
+.task-list-head table .task-name{
+  width: 80%;
+}
+.task-list-head table .task-status{
+  width: 10%;
+}
+.task-list-head table .table-data{
+  display: flex;
+  justify-content: center;
+}
+.create-task-page{
+  width: 30vw;
+  position: fixed;
+  top: 25vh;
+  left: 35vw;
+  height: auto;
+}
+.create-page-close-button{
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.create-task-page-inner{
+  width: 100%;
+}
+.invalid-data{
+  color: red;
+}
+.sign-up-sign-in{
+  display: flex;
+  justify-content: space-around;
+  width: 50%;
+  color: #EEE;
+  margin-left: auto;
+  margin-right: auto;
+}
+.sign-up-sign-in a{
+  color: inherit;
+  text-decoration: none;
+}
