@@ -1,4 +1,5 @@
 import firebase from "firebase";
+import "firebase/storage";
 const firebaseObj = firebase.initializeApp({
     apiKey: "AIzaSyCfnO5zWNHR2ckL9UadX76dY0gdH1octfI",
     authDomain: "to-do-taskmanager-3370f.firebaseapp.com",
@@ -10,4 +11,6 @@ const firebaseObj = firebase.initializeApp({
 })
 
 const db = firebaseObj.firestore();
-export default db;
+const storage = firebase.storage();
+
+export { storage, db as default };

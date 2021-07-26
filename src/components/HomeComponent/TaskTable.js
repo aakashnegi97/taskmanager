@@ -11,6 +11,9 @@ function TaskTable(props) {
                         Task Name
                     </th>
                     <th className="task-name">
+                        Media
+                    </th>
+                    <th className="task-name">
                         Comment
                     </th>
                     <th className="task-status">
@@ -36,7 +39,19 @@ function TaskTable(props) {
                         </td>
                         <td className="task-name">
                             <div className="table-data">
-                                <p>{x.data().comment?x.data().comment[x.data().comment.length-1]?x.data().comment[x.data().comment.length-1].replaceAll(" ","")===""?"------":x.data().comment[x.data().comment.length-1]:"------":"------"}</p>
+                                {
+                                    x.data().media ?
+                                        <a href={x.data().media} target="_blank">
+                                            <p>{`${x.data().taskname}.media`}</p>
+                                        </a>
+                                        :
+                                        <p>{`--------`}</p>
+                                }
+                            </div>
+                        </td>
+                        <td className="task-name">
+                            <div className="table-data">
+                                <p>{x.data().comment ? x.data().comment[x.data().comment.length - 1] ? x.data().comment[x.data().comment.length - 1].replaceAll(" ", "") === "" ? "--------" : x.data().comment[x.data().comment.length - 1] : "--------" : "--------"}</p>
                             </div>
                         </td>
                         <td className="task-status">

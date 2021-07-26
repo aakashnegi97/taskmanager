@@ -90,9 +90,11 @@ function SignUp() {
                     Already have account?
                 </h5>
                 <Link to="/sign-in">
-                    <h5>
-                        Sign-in
-                    </h5>
+                    <div className="sign-in-button-container">
+                        <h5 className="sign-in-button">
+                            Sign-in
+                        </h5>
+                    </div>
                 </Link>
             </div>
         </div>
