@@ -253,6 +253,7 @@
 }
 .create-task-page{
   width: 35vw;
+  min-width: 537px;
   position: fixed;
   top: 25vh;
   left: 35vw;
@@ -263,6 +264,7 @@
 }
 .update-task-page{
   width: 50vw;
+  min-width: 720px;
   position: fixed;
   top: 1vh;
   left: 25vw;
@@ -271,6 +273,7 @@
 .create-page-close-button{
   width: 100vw;
   height: 100vh;
+  min-height: 600px;
   position: fixed;
   top: 0;
   left: 0;
