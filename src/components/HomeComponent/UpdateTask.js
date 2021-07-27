@@ -7,16 +7,35 @@ function UpdateTask(props) {
     const [createdState, setCreatedState] = useState("");
     const [editState, setEditState] = useState("");
     const [commentBox, setCommentBox] = useState("");
+    const [history, setHistory] = useState(props.inputData.history);
 
     const createTaskFunc = () => {
-
+        var historyData = "";
+        if (statusState != props.inputData.status) {
+            historyData += "Status";
+        }
+        if (ownerState !== props.inputData.assignedto) {
+            historyData += historyData===""?"Owner ":", Owner";
+        }
+        if (commentBox != props.inputData.comment && commentBox != "") {
+            historyData += historyData===""?"Comment ":", Comment";
+        }
+        var currentDate = new Date();
+        if (historyData === "") {
+            // setEditState(`${y.getDate()}-${y.getMonth() + 1}-${y.getFullYear()} ${y.getHours() + 1}:${y.getMinutes() + 1}`);
+            historyData += `Check-in by ${localStorage.getItem("taskmanagerCredUser")} at ${currentDate.getDate()}-${currentDate.getMonth() + 1}-${currentDate.getFullYear()} ${currentDate.getHours() + 1}:${currentDate.getMinutes() + 1}`;
+        }
+        else {
+            historyData += ` has been updated by ${localStorage.getItem("taskmanagerCredUser")} at ${currentDate.getDate()}-${currentDate.getMonth() + 1}-${currentDate.getFullYear()} ${currentDate.getHours() + 1}:${currentDate.getMinutes() + 1}`
+        }
         db.collection('users').where("username", "==", ownerState).get().then((snap) => {
             if (snap.docs[0] || ownerState === "") {
                 db.collection('taskdata').doc(props.inputData.id).update({
                     status: statusState,
                     lastedit: new Date(),
                     assignedto: ownerState,
-                    comment: commentBox ? [...props.inputData.comment, commentBox] : [...props.inputData.comment]
+                    comment: commentBox ? [...props.inputData.comment, commentBox] : [...props.inputData.comment],
+                    history: [...history, historyData]
                 }).then(props.close());
             }
             else {
@@ -28,20 +47,21 @@ function UpdateTask(props) {
     useEffect(() => {
         setStatusState(props.inputData.status);
         setOwnerState(props.inputData.assignedto);
+        setHistory(props.inputData.history);
         let x = new Date(props.inputData.createdat * 1000);
         setCreatedState(`${x.getDate()}-${x.getMonth() + 1}-${x.getFullYear()} ${x.getHours() + 1}:${x.getMinutes() + 1}`);
         let y = new Date(props.inputData.lastedit * 1000);
         setEditState(`${y.getDate()}-${y.getMonth() + 1}-${y.getFullYear()} ${y.getHours() + 1}:${y.getMinutes() + 1}`);
     }, [props.inputData.status, props.inputData.assignedto, props.id]);
 
-    useEffect(() => {
-        if (props.inputData.taskname) {
-            db.collection('taskdata').where("taskname", "==", props.inputData.taskname).onSnapshot(snap => {
-                let changes = snap.docChanges();
-                console.log(changes)
-            })
-        }
-    }, [props.inputData.taskname]);
+    // useEffect(() => {
+    //     if (props.inputData.taskname) {
+    //         db.collection('taskdata').where("taskname", "==", props.inputData.taskname).onSnapshot(snap => {
+    //             let changes = snap.docChanges();
+    //             console.log(changes)
+    //         })
+    //     }
+    // }, [props.inputData.taskname]);
     return (
         <>
             <div style={{ display: props.display, zIndex: 2 }} className="create-page-close-button" onClick={props.close}></div>
@@ -155,8 +175,19 @@ function UpdateTask(props) {
                                                 <h4>
                                                     1. Created at {createdState}
                                                 </h4>
+                                                {
+                                                    history ?
+                                                        history.map((data, index) =>
+                                                            <h4 key={index}>
+                                                                {index+2}. {data}
+                                                            </h4>
+                                                        )
+                                                        :
+                                                        null
+
+                                                }
                                             </li>
-                                            
+
                                         </ul>
                                     </div>
                                 </div>

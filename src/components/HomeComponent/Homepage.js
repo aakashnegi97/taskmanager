@@ -38,7 +38,8 @@ function Homepage() {
                     assignedto: objectData.assignedto?objectData.assignedto:"",
                     createdat: objectData.createdat ? objectData.createdat.seconds : "",
                     lastedit: objectData.lastedit ? objectData.lastedit.seconds : "",
-                    comment: objectData.comment?objectData.comment : []
+                    comment: objectData.comment?objectData.comment : [],
+                    history: objectData.history?objectData.history : []
                 });
             }
 
